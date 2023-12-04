@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // b01
+      const arr = [
+        1,
+        "abc",
+        undefined,
+        NaN,
+        true,
+        null,
+        { a: "abc" },
+        function () {},
+      ];
+
+      // b02
+      const arr2 = [1, 2, 3, 4];
+      const arr3 = [];
+      arr2.forEach((number) => {
+        if (number % 2 == 0) {
+          arr3.push(number);
+        }
+      });
+      console.log("arr3 : ", arr3);
+
+      // b03
+      const arr4 = [1, 2, 3, 4];
+      let sum = 0;
+      arr4.forEach((number) => {
+        sum += number;
+      });
+      console.log(sum);
+
+      // b04
+      const arr5 = [8, 2, 6, 4, 7];
+      let length = arr5.length;
+      for (let i = 0; i < length; i++) {
+        for (let j = 0; j < length - i; j++) {
+          if (arr5[j] > arr5[j + 1]) {
+            let temp = arr5[j];
+            arr5[j] = arr5[j + 1];
+            arr5[j + 1] = temp;
+          }
+        }
+      }
+      console.log(arr5);
+
+      // b05
+      const arr6 = [1, 2, 3, 4];
+      let sumOdd = 0;
+      let sumEven = 0;
+      arr6.forEach((number) => {
+        if (number % 2 == 0) {
+          sumEven += number;
+        } else {
+          sumOdd += number;
+        }
+      });
+      console.log("sum chan", sumEven);
+      console.log("sum le", sumOdd);
+
+      // b06
+      const arr7 = [2, 1, 1, 1, 2, 3, 1, 2, 1];
+      let counts = 0;
+      let maxCount;
+      for (let i = 0; i < arr7.length; i++) {
+        let count = 1;
+        for (let j = i + 1; j < arr7.length; j++) {
+          if (arr7[i] === arr7[j]) {
+            count++;
+          }
+        }
+        if (count > counts) {
+          counts = count;
+          maxCount = arr7[i];
+        }
+      }
+      console.log(maxCount);
+
+      // b07
+      const arr8 = [2, 1, 1, 1, 2, 3, 1, 2, 1, 4, 7];
+      const newArr8 = [];
+
+      let tempArr8;
+      for (let i = 0; i < arr8.length; i++) {
+        for (let j = i + 1; j < arr8.length; j++) {
+          if (arr8[j] < arr8[i]) {
+            tempArr8 = arr8[j];
+            arr8[j] = arr8[i];
+            arr8[i] = tempArr8;
+          }
+        }
+      }
+      for (let i = 0; i < arr8.length; i++) {
+        if (arr8[i] !== arr8[i + 1]) {
+          newArr8.push(arr8[i]);
+        }
+      }
+      console.log("new arr: ", newArr8);
+    </script>
+  </body>
+</html>
